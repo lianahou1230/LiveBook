@@ -166,4 +166,4 @@ PORT=8080 pnpm start
 
 ## License
 
-Private
+MIT License
