@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Pacifico&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+:root {
+  --font-sans: "Nunito", "Quicksand", "Varela Round", system-ui, sans-serif;
+  --font-display: "Quicksand", "Nunito", sans-serif;
+  --font-hand: "Pacifico", "Dancing Script", cursive;
+  --font-mono: "SF Mono", Menlo, Monaco, "Courier New", monospace;
+
+  --background: 340 60% 99%;
+  --foreground: 25 12% 32%;
+
+  --card: 340 60% 99%;
+  --card-foreground: 25 12% 32%;
+
+  --popover: 340 60% 99%;
+  --popover-foreground: 25 12% 32%;
+
+  --primary: 348 100% 86%;
+  --primary-foreground: 25 12% 32%;
+
+  --secondary: 150 52% 82%;
+  --secondary-foreground: 25 12% 32%;
+
+  --muted: 30 20% 95%;
+  --muted-foreground: 25 10% 55%;
+
+  --accent: 50 100% 86%;
+  --accent-foreground: 25 12% 32%;
+
+  --destructive: 0 60% 75%;
+  --destructive-foreground: 340 60% 99%;
+
+  --border: 30 15% 90%;
+  --input: 30 15% 90%;
+  --ring: 348 100% 86%;
+
+  --radius: 1.25rem;
+
+  --surface-1: 340 60% 99%;
+  --surface-2: 30 20% 96%;
+  --brand-accent: 348 100% 86%;
+  --brand-success: 150 52% 82%;
+
+  --card-border: var(--border);
+  --popover-border: var(--border);
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  --chart-1: 348 100% 86%;
+  --chart-2: 150 52% 82%;
+  --chart-3: 220 40% 85%;
+  --chart-4: 280 35% 85%;
+  --chart-5: 40 80% 85%;
+
+  --primary-border: hsl(var(--primary) / 0.25);
+  --secondary-border: hsl(var(--border));
+  --muted-border: hsl(var(--border));
+  --accent-border: hsl(var(--border));
+  --destructive-border: hsl(var(--destructive) / 0.3);
+
+  --button-outline: hsl(var(--border));
+  --badge-outline: hsl(var(--border));
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+  }
+
+  /* Hide scrollbar globally */
+  html, body {
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-hand {
+    font-family: var(--font-hand);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .macaron-card {
+    background: #FFFCFD;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(168, 159, 145, 0.08);
+    transition: all 200ms ease;
+  }
+  .macaron-card:hover {
+    box-shadow: 0 8px 24px rgba(168, 159, 145, 0.12);
+  }
+
+  .macaron-btn {
+    border-radius: 24px;
+    padding: 14px 28px;
+    font-weight: 600;
+    transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .macaron-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 183, 197, 0.3);
+  }
+
+  .dashed-line {
+    border-top: 2px dashed #FFE4E9;
+  }
+
+  .wavy-line {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='8' viewBox='0 0 40 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4 Q5 0, 10 4 T20 4 T30 4 T40 4' stroke='%23FFE4E9' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    height: 8px;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out forwards;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+  }
+}
