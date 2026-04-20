@@ -95,7 +95,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
     <div className="min-h-screen pb-24 bg-macaron-vanilla overflow-x-hidden">
       {/* Header */}
       <header className="px-6 pt-10 pb-5">
-        <h1 className="font-hand text-4xl text-macaron-rose mb-1">Livebook</h1>
+        <h1 className="font-hand text-4xl text-macaron-rose mb-1">LiveBook</h1>
         <p className="text-sm text-macaron-cocoa font-medium">Your personal show journal</p>
       </header>
 
